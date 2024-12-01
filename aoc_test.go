@@ -6,6 +6,7 @@ import (
 )
 
 func BenchmarkDay1_2(b *testing.B) {
+    runs := 0
 	for i := 0; i < b.N; i++ {
 		day1.Second([]string{
 			"3   4",
@@ -15,7 +16,7 @@ func BenchmarkDay1_2(b *testing.B) {
 			"3   9",
 			"3   3",
 		})
-        b.Logf("Elapsed: %d microseconds", b.Elapsed().Microseconds())
+        runs+=1
 	}
-    b.ReportAllocs()
+    b.ReportMetric(float64(runs)/float64(b.Elapsed().Microseconds()), "calls/ms")
 }

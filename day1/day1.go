@@ -75,9 +75,9 @@ func Second(lines []string) {
 	}
 
 	for _, i := range firstCol {
-		count, ok := tbl[i]
-		if ok {
+        if count, ok := tbl[i]; ok {
 			answer += count * i
 		}
 	}
+    // fmt.Println(answer)
 }
