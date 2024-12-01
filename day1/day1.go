@@ -62,21 +62,22 @@ func First(lines []string) {
 func Second(lines []string) {
 	lines = utils.ReadLinesToSlice("day1/input.txt")
 	firstCol, secondCol := getColumns(lines)
+	tbl := make(map[int]int)
 	answer := 0
-	var curr int
 
-	slices.Sort(firstCol)
-	slices.Sort(secondCol)
-
-	for _, i := range firstCol {
-		for _, j := range secondCol {
-			if i == j {
-				curr += 1
-			}
+	for _, i := range secondCol {
+		_, ok := tbl[i]
+		if ok {
+			tbl[i] += 1
+		} else {
+			tbl[i] = 1
 		}
-		answer += curr * i
-		curr = 0
 	}
 
-	fmt.Println(answer)
+	for _, i := range firstCol {
+		count, ok := tbl[i]
+		if ok {
+			answer += count * i
+		}
+	}
 }
