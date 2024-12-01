@@ -60,7 +60,7 @@ func First(lines []string) {
 }
 
 func Second(lines []string) {
-    lines = utils.ReadLinesToSlice("day1/input.txt")
+	lines = utils.ReadLinesToSlice("day1/input.txt")
 	firstCol, secondCol := getColumns(lines)
 	answer := 0
 	var curr int
