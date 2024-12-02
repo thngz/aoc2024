@@ -6,7 +6,7 @@ import (
 )
 
 func ReadLinesToSlice(path string) []string {
-	f, err := os.Open("day1/input.txt")
+	f, err := os.Open(path)
 
 	var lines []string
 
@@ -23,4 +23,11 @@ func ReadLinesToSlice(path string) []string {
 	}
 
 	return lines
+}
+
+func GetDelta(a int, b int) int {
+    if a > b {
+        return a - b
+    }
+    return b - a
 }
