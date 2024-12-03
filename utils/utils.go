@@ -31,3 +31,7 @@ func GetDelta(a int, b int) int {
     }
     return b - a
 }
+
+func IsDigit(ch byte) bool {
+	return '0' <= ch && ch <= '9'
+}
